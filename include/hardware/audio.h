@@ -669,7 +669,7 @@ struct audio_hw_device {
     int (*set_mad_observer)(struct audio_hw_device *dev,
                             listen_callback_t cb_func);
 
-   /**
+    /**
      *   This method is used for setting listen hal specfic parameters.
      *  If multiple paramets are set in one call and setting any one of them
      *  fails it will return failure.
