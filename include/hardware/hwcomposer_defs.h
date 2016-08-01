@@ -192,6 +192,10 @@ enum {
      */
     HWC_DISPLAY_DPI_X                       = 4,
     HWC_DISPLAY_DPI_Y                       = 5,
+
+    /* Indicates which of the vendor-defined color transforms is provided by
+     * this configuration. */
+    HWC_DISPLAY_COLOR_TRANSFORM             = 6,
 };
 
 /* Allowed events for hwc_methods::eventControl() */
@@ -203,17 +207,26 @@ enum {
 enum {
     HWC_DISPLAY_PRIMARY     = 0,
     HWC_DISPLAY_EXTERNAL    = 1,    // HDMI, DP, etc.
+#ifdef QTI_BSP
     HWC_DISPLAY_TERTIARY    = 2,
     HWC_DISPLAY_VIRTUAL     = 3,
 
     HWC_NUM_PHYSICAL_DISPLAY_TYPES = 3,
     HWC_NUM_DISPLAY_TYPES          = 4,
+#else
+    HWC_DISPLAY_VIRTUAL     = 2,
+
+    HWC_NUM_PHYSICAL_DISPLAY_TYPES = 2,
+    HWC_NUM_DISPLAY_TYPES          = 3,
+#endif
 };
 
 enum {
     HWC_DISPLAY_PRIMARY_BIT     = 1 << HWC_DISPLAY_PRIMARY,
     HWC_DISPLAY_EXTERNAL_BIT    = 1 << HWC_DISPLAY_EXTERNAL,
+#ifdef QTI_BSP
     HWC_DISPLAY_TERTIARY_BIT    = 1 << HWC_DISPLAY_TERTIARY,
+#endif
     HWC_DISPLAY_VIRTUAL_BIT     = 1 << HWC_DISPLAY_VIRTUAL,
 };
 
